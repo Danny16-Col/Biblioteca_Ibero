@@ -1,7 +1,7 @@
 from models.Libro import Libro
 from models.Usuario import Usuario
 
-# Base de datos quemada para poder hacer pruebas 
+# Base de datos quemada para poder hacer pruebas.
 
 # Lista de libros
 libros = [
