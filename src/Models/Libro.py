@@ -1,14 +1,14 @@
 #atributos libro
 class Libro: 
     def __init__(self,id_libro,titulo,autor):
-        self.__id__libro = id_libro
+        self.__id_libro = id_libro
         self.__titulo = titulo
         self.__autor = autor
         self.__disponible = True
 
 #getter
     def getId(self):
-        return self.__id__libro
+        return self.__id_libro
     def getTitulo(self):
         return self.__titulo
     def getAutor(self):
