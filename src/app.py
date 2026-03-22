@@ -1,4 +1,4 @@
-# comentario
+from controllers.libro_controller import registrar_libro_controller, buscar_libro_controller # se importa desde controller el registro
 from controllers.prestar_controller import prestar_libro_controller
 from controllers.devolver_controller import devolver_libro_controller
 
@@ -8,7 +8,9 @@ while True:
 
     print("1. Prestar")
     print("2. Devolver")
-    print("3. SALIR ")
+    print("3. Registrar libro")
+    print("4. Buscar libro")
+    print("5. SALIR")
 
     opcion = int(input("Seleccione una opcion: "))
 
@@ -22,10 +24,31 @@ while True:
 
     elif opcion == 3:
 
-        print("Saliendo...")
+        id_libro = int(input("Ingrese ID del libro: "))
+        titulo = input("Ingrese titulo: ")
+        autor = input("Ingrese autor: ")
+
+        resultado = registrar_libro_controller(id_libro, titulo, autor)
+        print(resultado)
+
+    elif opcion == 4:
+
+        id_libro = int(input("ID del libro seleccionado: "))
+
+        libro = buscar_libro_controller(id_libro)
+
+        if libro:
+            print(f"Libro: {libro.getTitulo()} - {libro.getAutor()}")
+        else:
+            print("Libro no encontrado")
+
+    elif opcion == 5:
+        
+        print("Saliendo del sistema...")
         break
 
     else:
 
-        print("Opcion invalida") 
+        print("Opcion invalida, intente de nuevo.") 
+
 
