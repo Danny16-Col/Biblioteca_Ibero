@@ -1,8 +1,5 @@
-from Models.Libro import Libro
-
-# aqui, lista que almacena los libros (estructura de datos lineal de tipo lista)
-libros = []
-
+from models.Libro import Libro
+from data.storage import libros #se llama a libros desde data/storage
 def registrar_libro(id_libro, titulo, autor): 
     
     # registra un nuevo libro en la lista y validar que el ID no este repetido, asi como verificar si el libro ya existe
