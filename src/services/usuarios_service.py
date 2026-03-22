@@ -20,6 +20,7 @@ def guardar_usuario(usuarios):
                 
 def registrar_usuario(usuario, contraseña):
     usuarios = cargar_usuarios()
+    print("Usuarios cargados: ",usuarios)
     
     #Aqui se verifica si ya existe
     for u in usuarios:
@@ -27,20 +28,20 @@ def registrar_usuario(usuario, contraseña):
             return False #Usuario ya existe
         
         #Crear nuevo usuario
-        nuevo={
-            "usuario":usuario,
-            "contraseña":contraseña
+    nuevo={
+        "usuario":usuario,
+        "contraseña":contraseña
         }
         
-        usuarios.append(nuevo)
-        guardar_usuario(usuarios)
-        return True
+    usuarios.append(nuevo)
+    guardar_usuario(usuarios)
+    return True
     
-def autenticar (usuarios, contraseña):
+def autenticar (usuario, contraseña):
         usuarios=cargar_usuarios()
         
         for u in usuarios:
-            if u["usuario"]==usuarios and u["contraseña"]==contraseña:
+            if u["usuario"]==usuario and u["contraseña"]==contraseña:
                 return True
             
             return False
