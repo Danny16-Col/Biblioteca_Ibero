@@ -4,19 +4,21 @@
 import json
 import os
 
-RUTA = "src/data/usuarios.json"
+RUTA = os.path.join(os.path.dirname(__file__), "..", "data", "usuarios.json")
+RUTA = os.path.abspath(RUTA)
 
 def cargar_usuarios():
-    if not os.pat.exists(RUTA):
+    print("Ruta real:", os.path.abspath(RUTA))
+    if not os.path.exists(RUTA):
         return[]
     with open (RUTA, "r") as f:
         return json.load(f)
     
-def guardar_usuarios(usuarios):
+def guardar_usuario(usuarios):
         with open(RUTA, "w") as f:
             json.dump(usuarios, f, indent=4)
                 
-def registrar_usuarios(usuario, contraseña):
+def registrar_usuario(usuario, contraseña):
     usuarios = cargar_usuarios()
     
     #Aqui se verifica si ya existe
@@ -31,14 +33,14 @@ def registrar_usuarios(usuario, contraseña):
         }
         
         usuarios.append(nuevo)
-        guardar_usuarios(usuarios)
+        guardar_usuario(usuarios)
         return True
     
-    def autenticar (usuarios, contraseña):
+def autenticar (usuarios, contraseña):
         usuarios=cargar_usuarios()
         
         for u in usuarios:
-            if u["usuario"]==usuario and u["contraseña"]==contraseña:
+            if u["usuario"]==usuarios and u["contraseña"]==contraseña:
                 return True
             
             return False
