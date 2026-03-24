@@ -1,3 +1,8 @@
+"""
+from controllers.usuario_controller import menu_login
+menu_login()
+"""
+
 from controllers.libro_controller import registrar_libro_controller, buscar_libro_controller # se importa desde controller el registro
 from controllers.prestar_controller import prestar_libro_controller
 from controllers.devolver_controller import devolver_libro_controller
@@ -50,5 +55,3 @@ while True:
     else:
 
         print("Opcion invalida, intente de nuevo.") 
-
-
