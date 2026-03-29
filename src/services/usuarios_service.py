@@ -4,17 +4,27 @@ from Models.Usuario import Usuario
 import json
 import os
 
+#Ruta al archivo JSOn donde se almacena los usuarios
 RUTA = os.path.join(os.path.dirname(__file__), "..", "data", "usuarios.json")
 RUTA = os.path.abspath(RUTA)
 
 def cargar_usuarios():
+    """Carga los usuarios desde el archivo JSON y los convierte en objetos
     
+    Returns: Lista de objetos Usuarios
+    """
+    
+    #Si el archivo no existe, retorna una lista vacia
     if not os.path.exists(RUTA):
         return[]
+    
+    
     with open (RUTA, "r") as f:
         data = json.load(f)
         
         usuarios = []
+        
+        #Convierte cada diccionario en objeto usuario
         for i, u in enumerate(data):
             usuario_obj = Usuario(
                 u.get("id", i+1),
@@ -27,6 +37,12 @@ def cargar_usuarios():
     
 def guardar_usuario(usuarios):
     data =[]
+    """
+    Guarda la lista de objetos Usuario en el archivo JSON.
+
+    Args:
+        usuarios (list): Lista de objetos Usuario
+    """
     
     for u in usuarios:
         data.append ({
@@ -36,7 +52,8 @@ def guardar_usuario(usuarios):
             "contraseña":
 u.get_contraseña()
         })
-        
+      
+      #Escribe en el archivo JSON  
     with open(RUTA, "w") as f:
             json.dump(data, f, indent=4)
                 
