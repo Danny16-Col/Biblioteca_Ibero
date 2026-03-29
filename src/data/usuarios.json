@@ -1,6 +1,8 @@
 [
     {
-        "usuario": "1",
-        "contrase\u00f1a": "1"
+        "id": 1,
+        "nombre": "ww",
+        "usuario": "w",
+        "contrase\u00f1a": "www"
     }
 ]
