@@ -23,3 +23,7 @@ def buscar_libro(id_libro):
             return libro
 
     return None
+
+def listar_libros():
+    
+    return libros

@@ -1,12 +1,28 @@
+"""""""""
 
 from controllers.usuario_controller import menu_login
 menu_login()
 
-"""from controllers.libro_controller import registrar_libro_controller, buscar_libro_controller # se importa desde controller el registro
+from controllers.libro_controller import registrar_libro_controller, buscar_libro_controller # se importa desde controller el registro
 from controllers.prestar_controller import prestar_libro_controller
 from controllers.devolver_controller import devolver_libro_controller
 
      while True:
+from controllers.libro_controller import registrar_libro_controller, buscar_libro_controller, listar_libros_controller # se importa desde controller el registro
+from controllers.prestar_controller import prestar_libro_controller
+from controllers.devolver_controller import devolver_libro_controller
+
+while True:
+
+    print("\n--- BIBLIOTECA ---")
+
+    print("1. Prestar")
+    print("2. Devolver")
+    print("3. Registrar libro")
+    print("4. Buscar libro")
+    print("5. Listar Libros")
+    print("6. SALIR")
+
 
         print("\n--- BIBLIOTECA ---")
 
@@ -51,4 +67,29 @@ from controllers.devolver_controller import devolver_libro_controller
             break
 
         else:
-            print("Opcion invalida, intente de nuevo.")"""
+
+            print("Opcion invalida, intente de nuevo.")
+
+            print("Libro no encontrado")
+
+    elif opcion == 5:
+
+        lista = listar_libros_controller()
+
+        if lista:
+            for libro in lista:
+               print(f"{libro.getId()} - {libro.getTitulo()} - {libro.getAutor()}")
+        else:
+             print("No hay libros registrados")
+
+    elif opcion == 6:
+        
+        print("Saliendo del sistema...")
+        break
+
+    else:
+
+        print("Opcion invalida, intente de nuevo.") 
+
+
+""""""

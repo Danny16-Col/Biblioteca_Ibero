@@ -1,4 +1,5 @@
-from services.libro_service import registrar_libro, buscar_libro
+"""
+from services.libro_service import registrar_libro, buscar_libro, listar_libros
 
 def registrar_libro_controller(id_libro, titulo, autor):
 
@@ -14,6 +15,7 @@ def buscar_libro_controller(id_libro):
     libro = buscar_libro(id_libro)
     
     return libro
+
     
 from services.libro_service import registrar_libro, buscar_libro
 from controllers.prestar_controller import prestar_libro_controller
@@ -80,3 +82,10 @@ def menu_biblioteca():
 
         else:
             print("Opcion invalida, intente de nuevo.")
+
+
+def listar_libros_controller():
+
+    return listar_libros()    
+
+""""""
