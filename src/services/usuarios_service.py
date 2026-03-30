@@ -1,6 +1,4 @@
-
-
-from Models.Usuario import Usuario
+from models.Usuario import Usuario
 import json
 import os
 
@@ -77,7 +75,7 @@ def registrar_usuario(nombre, usuario, contraseña):
     usuarios.append(nuevo)
     guardar_usuario(usuarios)
     return nuevo.get_id()
-    
+""""   
 def autenticar (usuario, contraseña):
         usuarios=cargar_usuarios()
         
@@ -86,3 +84,4 @@ def autenticar (usuario, contraseña):
                 return True
             
             return False
+"""

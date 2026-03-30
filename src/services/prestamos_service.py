@@ -10,21 +10,21 @@ def buscar_libro(id_libro):
     return None
 
 
-def buscar_usuario(id_usuario):
+def buscar_usuario(id):
     usuarios = cargar_usuarios()
 
     for usuario in usuarios:
-        if usuario.getId() == id_usuario:
+        if usuario.getId() == id:
             return usuario
     return None
 
 # Funcion de prestar junto con el metodo del moduls/Libro 
-def prestar_libro(id_usuario, id_libro):
+def prestar_libro(id, id_libro):
     libro = buscar_libro(id_libro)
     if libro is None:
         return "Libro no existe"
 
-    usuario = buscar_usuario(id_usuario)
+    usuario = buscar_usuario(id)
     if usuario is None:
         return "Usuario no existe"
 
@@ -35,18 +35,18 @@ def prestar_libro(id_usuario, id_libro):
 
     prestamos.append({
         "id_libro": id_libro,
-        "id_usuario": id_usuario
+        "id_usuario": id
     })
 
     return "Libro prestado exitosamente"
 
 # Funcionde devolver libro junto con el metodo devolver libro del moduls/Libro
-def devolver_libro(id_usuario, id_libro):
+def devolver_libro(id, id_libro):
     libro = buscar_libro(id_libro)
     if libro is None:
         return "Libro no existe"
 
-    usuario = buscar_usuario(id_usuario)
+    usuario = buscar_usuario(id)
     if usuario is None:
         return "Usuario no existe"
 
@@ -56,7 +56,7 @@ def devolver_libro(id_usuario, id_libro):
     prestamo_encontrado = None
 
     for prestamo in prestamos:
-        if prestamo["id_usuario"] == id_usuario and prestamo["id_libro"] == id_libro:
+        if prestamo["id"] == id and prestamo["id_libro"] == id_libro:
             prestamo_encontrado = prestamo
             break
 
