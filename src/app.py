@@ -6,52 +6,49 @@ menu_login()
 from controllers.prestar_controller import prestar_libro_controller
 from controllers.devolver_controller import devolver_libro_controller
 
-while True:
+     while True:
 
-    print("\n--- BIBLIOTECA ---")
+        print("\n--- BIBLIOTECA ---")
 
-    print("1. Prestar")
-    print("2. Devolver")
-    print("3. Registrar libro")
-    print("4. Buscar libro")
-    print("5. SALIR")
+        print("1. Prestar")
+        print("2. Devolver")
+        print("3. Registrar libro")
+        print("4. Buscar libro")
+        print("5. SALIR")
 
-    opcion = int(input("Seleccione una opcion: "))
+        try:
+            opcion = int(input("Seleccione una opcion: "))
+        except:
+            print("Ingrese un número válido")
+            continue
 
-    if opcion == 1:
+        if opcion == 1:
+            prestar_libro_controller()
 
-        prestar_libro_controller()
+        elif opcion == 2:
+            devolver_libro_controller()
 
-    elif opcion == 2:
+        elif opcion == 3:
+            id_libro = int(input("Ingrese ID del libro: "))
+            titulo = input("Ingrese titulo: ")
+            autor = input("Ingrese autor: ")
 
-        devolver_libro_controller()
+            resultado = registrar_libro_controller(id_libro, titulo, autor)
+            print(resultado)
 
-    elif opcion == 3:
+        elif opcion == 4:
+            id_libro = int(input("ID del libro seleccionado: "))
 
-        id_libro = int(input("Ingrese ID del libro: "))
-        titulo = input("Ingrese titulo: ")
-        autor = input("Ingrese autor: ")
+            libro = buscar_libro_controller(id_libro)
 
-        resultado = registrar_libro_controller(id_libro, titulo, autor)
-        print(resultado)
+            if libro:
+                print(f"Libro: {libro.getTitulo()} - {libro.getAutor()}")
+            else:
+                print("Libro no encontrado")
 
-    elif opcion == 4:
+        elif opcion == 5:
+            print("Saliendo del sistema...")
+            break
 
-        id_libro = int(input("ID del libro seleccionado: "))
-
-        libro = buscar_libro_controller(id_libro)
-
-        if libro:
-            print(f"Libro: {libro.getTitulo()} - {libro.getAutor()}")
         else:
-            print("Libro no encontrado")
-
-    elif opcion == 5:
-        
-        print("Saliendo del sistema...")
-        break
-
-    else:
-
-        print("Opcion invalida, intente de nuevo.") 
-"""
+            print("Opcion invalida, intente de nuevo.")"""

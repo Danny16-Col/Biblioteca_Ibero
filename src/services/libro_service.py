@@ -1,4 +1,4 @@
-from models.Libro import Libro
+from Models.Libro import Libro
 from data.storage import libros #se llama a libros desde data/storage
 def registrar_libro(id_libro, titulo, autor): 
     
