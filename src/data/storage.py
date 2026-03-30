@@ -1,5 +1,5 @@
-from Models.Libro import Libro
-from Models.Usuario import Usuario
+from models.Libro import Libro
+from models.Usuario import Usuario
 
 # Base de datos quemada para poder hacer pruebas..
 

@@ -1,14 +1,5 @@
-"""""""""
-
-from controllers.usuario_controller import menu_login
-menu_login()
-
-from controllers.libro_controller import registrar_libro_controller, buscar_libro_controller # se importa desde controller el registro
-from controllers.prestar_controller import prestar_libro_controller
-from controllers.devolver_controller import devolver_libro_controller
-
-     while True:
-from controllers.libro_controller import registrar_libro_controller, buscar_libro_controller, listar_libros_controller # se importa desde controller el registro
+from controllers.usuario_controller import registro
+from controllers.libro_controller import listar_libros_controller, buscar_libro_controller, registrar_libro_controller
 from controllers.prestar_controller import prestar_libro_controller
 from controllers.devolver_controller import devolver_libro_controller
 
@@ -16,64 +7,30 @@ while True:
 
     print("\n--- BIBLIOTECA ---")
 
-    print("1. Prestar")
-    print("2. Devolver")
-    print("3. Registrar libro")
-    print("4. Buscar libro")
-    print("5. Listar Libros")
-    print("6. SALIR")
+    print("1. Registrar Usuario")
+    print("2. Registrar Libro")
+    print("3. Listar Libros")
+    print("4. Buscar Libro por ID")
+    print("5. Prestar Libro")
+    print("6. Devolver libro")
+    print("7. SALIR")
 
+    opcion = int(input("Seleccione una opcion: "))
 
-        print("\n--- BIBLIOTECA ---")
+    if opcion == 1:
 
-        print("1. Prestar")
-        print("2. Devolver")
-        print("3. Registrar libro")
-        print("4. Buscar libro")
-        print("5. SALIR")
+        registro()
 
-        try:
-            opcion = int(input("Seleccione una opcion: "))
-        except:
-            print("Ingrese un número válido")
-            continue
+    elif opcion == 2:
 
-        if opcion == 1:
-            prestar_libro_controller()
+        id_libro = int(input("Ingrese ID del libro: "))
+        titulo = input("Ingrese titulo: ")
+        autor = input("Ingrese autor: ")
 
-        elif opcion == 2:
-            devolver_libro_controller()
+        resultado = registrar_libro_controller(id_libro, titulo, autor)
+        print(resultado)
 
-        elif opcion == 3:
-            id_libro = int(input("Ingrese ID del libro: "))
-            titulo = input("Ingrese titulo: ")
-            autor = input("Ingrese autor: ")
-
-            resultado = registrar_libro_controller(id_libro, titulo, autor)
-            print(resultado)
-
-        elif opcion == 4:
-            id_libro = int(input("ID del libro seleccionado: "))
-
-            libro = buscar_libro_controller(id_libro)
-
-            if libro:
-                print(f"Libro: {libro.getTitulo()} - {libro.getAutor()}")
-            else:
-                print("Libro no encontrado")
-
-        elif opcion == 5:
-            print("Saliendo del sistema...")
-            break
-
-        else:
-
-            print("Opcion invalida, intente de nuevo.")
-
-            print("Libro no encontrado")
-
-    elif opcion == 5:
-
+    elif opcion == 3:
         lista = listar_libros_controller()
 
         if lista:
@@ -82,14 +39,34 @@ while True:
         else:
              print("No hay libros registrados")
 
+
+    elif opcion == 4:
+
+        id_libro = int(input("ID del libro seleccionado: "))
+
+        libro = buscar_libro_controller(id_libro)
+
+        if libro:
+            print(f"Libro: {libro.getTitulo()} - {libro.getAutor()}")
+        else:
+            print("Libro no encontrado")
+
+    elif opcion == 5:
+
+        prestar_libro_controller()
+
     elif opcion == 6:
         
-        print("Saliendo del sistema...")
-        break
+        devolver_libro_controller()
+
+    elif opcion == 7:
+
+        print("Gracias por utilizar nuestro sistema")
+        break 
 
     else:
 
-        print("Opcion invalida, intente de nuevo.") 
+        print("Opcion invalida, intente de nuevo.")
 
 
-""""""
+    

@@ -5,9 +5,9 @@ def prestar_libro_controller():
     print("\n--- BIBLIOTECA ---")
     print("\n--- PRESTAMO LIBRO---")
 
-    id_usuario = int(input("Ingrese ID del usuario: "))
+    id = int(input("Ingrese ID del usuario: "))
     id_libro = int(input("Ingrese ID del libro: "))
 
-    resultado = prestar_libro(id_usuario, id_libro)
+    resultado = prestar_libro(id, id_libro)
 
     print(resultado)
