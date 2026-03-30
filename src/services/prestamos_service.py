@@ -1,4 +1,6 @@
-from data.storage import libros, usuarios, prestamos
+from data.storage import libros, prestamos
+from services.usuarios_service import cargar_usuarios
+
 
 # Buscamos el libro en la base de datos recorriendo el arreglo
 def buscar_libro(id_libro):
@@ -7,8 +9,10 @@ def buscar_libro(id_libro):
             return libro
     return None
 
-# Buscamos el id del usuario en la base de datos recorriendo el arreglo
+
 def buscar_usuario(id_usuario):
+    usuarios = cargar_usuarios()
+
     for usuario in usuarios:
         if usuario.getId() == id_usuario:
             return usuario

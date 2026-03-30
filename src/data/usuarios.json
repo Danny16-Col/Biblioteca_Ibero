@@ -1,6 +1,14 @@
 [
     {
-        "usuario": "1",
-        "contrase\u00f1a": "1"
+        "id": 1,
+        "nombre": "Juan Orozco",
+        "usuario": "Juan",
+        "contrase\u00f1a": "123"
+    },
+    {
+        "id": 2,
+        "nombre": "Daniel",
+        "usuario": "Daniel",
+        "contrase\u00f1a": "123"
     }
 ]
