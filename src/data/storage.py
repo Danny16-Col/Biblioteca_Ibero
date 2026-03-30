@@ -7,5 +7,5 @@ from models.Usuario import Usuario
 libros = []
 
 
-# Lista de préstamos (estructura lineal)
+# Lista de prestamos (estructura lineal)
 prestamos = []

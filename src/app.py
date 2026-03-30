@@ -8,14 +8,25 @@ while True:
     print("\n--- BIBLIOTECA ---")
 
     print("1. Registrar Usuario")
-    print("2. Registrar Libro")
-    print("3. Listar Libros")
-    print("4. Buscar Libro por ID")
+    print("2. Registrar Libro")    #vladimir Herrera
+    print("3. Listar Libros")      #vladimir Herrera
+    print("4. Buscar Libro por ID")#vladimir Herrera
     print("5. Prestar Libro")
     print("6. Devolver libro")
     print("7. SALIR")
 
-    opcion = int(input("Seleccione una opcion: "))
+    while True: # condicional para validar la opcion del menu
+        try:
+            opcion = int(input("Seleccione una opcion: "))
+        
+            if opcion < 1 or opcion > 7:   # validamos que el usuario solo marque un numero del 1 al 7
+                print("Debe seleccionar un numero del 1 al 7")
+                continue
+        
+            break  # si se cumple sale del while
+
+        except ValueError:
+            print("Debe ingresar un numero valido")
 
     if opcion == 1:
 
@@ -23,7 +34,18 @@ while True:
 
     elif opcion == 2:
 
-        id_libro = int(input("Ingrese ID del libro: "))
+        while True: #validasmos que el ID sea un numero mayor a cero y que no sea una letra
+            try:
+                id_libro = int(input("Ingrese ID del libro: "))
+
+                if id_libro <= 0:
+                   print("El ID debe ser mayor a 0")
+                   continue
+
+                break  # si todo esta ok  sale del while
+
+            except ValueError:
+                 print("Debe ingresar un numero valido...")
         titulo = input("Ingrese titulo: ")
         autor = input("Ingrese autor: ")
 
@@ -31,25 +53,62 @@ while True:
         print(resultado)
 
     elif opcion == 3:
+
         lista = listar_libros_controller()
 
         if lista:
+            print("\nID   | TITULO                | AUTOR")
+            print("----------------------------------------")
+
             for libro in lista:
-               print(f"{libro.getId()} - {libro.getTitulo()} - {libro.getAutor()}")
+                print(f"{libro.getId():<4} | {libro.getTitulo():<20} | {libro.getAutor()}")
         else:
-             print("No hay libros registrados")
+            print("No hay libros registrados")
 
 
     elif opcion == 4:
 
-        id_libro = int(input("ID del libro seleccionado: "))
+        while True:  # se valida la busqueda con un submenu
+            print("\n--- BUSCAR LIBRO ---")
+            print("1. Ingresar ID")
+            print("2. Volver")
 
-        libro = buscar_libro_controller(id_libro)
+            try:
+                 sub = int(input("Seleccione una opcion: "))
+            except ValueError:
+                print("Debe ingresar un numero valido..")
+                continue
 
-        if libro:
-            print(f"Libro: {libro.getTitulo()} - {libro.getAutor()}")
-        else:
-            print("Libro no encontrado")
+            if sub == 1:
+                # se valida ID del libro, que sea un numero positivo y que no ingresen una letra u otro caracter
+                while True:
+                    try:
+                        id_libro = int(input("ID del libro: "))
+
+                        if id_libro <= 0:
+                            print("El ID debe ser un numero positivo..")
+                            continue
+
+                        break
+                    except ValueError:
+                        print("Debe ingresar un numero valido..")
+
+                # se busca el libro y se dan los datos del mismo
+                libro = buscar_libro_controller(id_libro)
+
+                if libro:
+                    print(f"\nLibro encontrado:")
+                    print(f"ID: {libro.getId()}")
+                    print(f"Titulo: {libro.getTitulo()}")
+                    print(f"Autor: {libro.getAutor()}")
+                else:
+                    print("Libro no encontrado")
+
+            elif sub == 2:
+                break  # aqui volvemos al menu principal
+
+            else:
+                print("Opcion no valida, intentelo nuevamente...")
 
     elif opcion == 5:
 
@@ -61,7 +120,7 @@ while True:
 
     elif opcion == 7:
 
-        print("Gracias por utilizar nuestro sistema")
+        print("Gracias por utilizar nuestro sistema.")
         break 
 
     else:
