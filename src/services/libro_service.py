@@ -13,7 +13,7 @@ def registrar_libro(id_libro, titulo, autor):
     # agregar el libro a la lista
     libros.append(nuevo_libro)
 
-    return "Libro registrado correctamente"
+    return "Libro registrado correctamente."
 
 def buscar_libro(id_libro):
     
