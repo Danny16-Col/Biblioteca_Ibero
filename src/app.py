@@ -8,9 +8,9 @@ while True:
     print("\n--- BIBLIOTECA ---")
 
     print("1. Registrar Usuario")
-    print("2. Registrar Libro")    #vladimir Herrera
-    print("3. Listar Libros")      #vladimir Herrera
-    print("4. Buscar Libro por ID")#vladimir Herrera
+    print("2. Registrar Libro")     #vladimir
+    print("3. Listar Libros")       #vladimir 
+    print("4. Buscar Libro por ID") #vladimir 
     print("5. Prestar Libro")
     print("6. Devolver libro")
     print("7. SALIR")

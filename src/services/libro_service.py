@@ -17,7 +17,7 @@ def registrar_libro(id_libro, titulo, autor):
 
 def buscar_libro(id_libro):
     
-    # busca un libro por su ID recorriendo la lista y retorna el libro si existe, de lo contrario None.
+    # busca un libro por su ID recorriendo la lista y retorna el libro si existe, de lo contrario retorna None.
     for libro in libros:
         if libro.getId() == id_libro:
             return libro
