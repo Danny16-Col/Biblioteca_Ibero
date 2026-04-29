@@ -1,10 +1,9 @@
 from models.Libro import Libro
 from models.Usuario import Usuario
+from models.ArbolLibros import ArbolLibros
 
-# Base de datos quemada para poder hacer pruebas..
-
-# Lista de libros vacia para agregar
-libros = []
+# estructura principal para almacenar los libros usando un arbol binario de busqueda - ABB
+libros = ArbolLibros()
 
 
 # Lista de prestamos (estructura lineal)
