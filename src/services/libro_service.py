@@ -1,29 +1,32 @@
 from models.Libro import Libro
-from data.storage import libros #se llama a libros desde data/storage
-def registrar_libro(id_libro, titulo, autor): 
-    
-    # registra un nuevo libro en la lista y validar que el ID no este repetido, asi como verificar si el libro ya existe
-    for libro in libros:
-        if libro.getId() == id_libro:
-            return "El libro ya existe"
+from data.storage import libros
 
-    # crear nuevo objeto Libro
+def registrar_libro(id_libro, titulo, autor):
+    # se crea el libro
     nuevo_libro = Libro(id_libro, titulo, autor)
 
-    # agregar el libro a la lista
-    libros.append(nuevo_libro)
+    # se inserta el libro en el arbol
+    insertado = libros.insertar(nuevo_libro)
+
+    # si ya existe ese ID, no lo deja registrar
+    if not insertado:
+        return "El libro ya existe..."
 
     return "Libro registrado correctamente."
 
+    # buscar libro por ID usando el arbol
 def buscar_libro(id_libro):
-    
-    # busca un libro por su ID recorriendo la lista y retorna el libro si existe, de lo contrario retorna None.
-    for libro in libros:
-        if libro.getId() == id_libro:
-            return libro
 
-    return None
+    # busqueda del libro en el arbol
+    libro = libros.buscar(id_libro)
 
+    # si no existe, retorna None
+    return libro
+
+    # listar
+
+    # listar libros usando el arbol
 def listar_libros():
-    
-    return libros
+
+    # retorna los libros en orden
+    return libros.listar()
