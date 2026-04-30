@@ -1,18 +1,11 @@
-from data.storage import libros, prestamos
+from data.storage import prestamos, libros
 from services.usuarios_service import cargar_usuarios
+
 
 
 # =======================
 # BÚSQUEDAS
 # =======================
-
-# Busca un libro por su ID recorriendo la lista
-def buscar_libro(id_libro):
-    for libro in libros:
-        if libro.getId() == id_libro:
-            return libro
-    return None
-
 
 # Busca un usuario por su ID cargando desde el JSON
 def buscar_usuario(id):
@@ -31,8 +24,10 @@ def buscar_usuario(id):
 # Permite prestar un libro a un usuario
 def prestar_libro(id, id_libro):
 
+    
+
     # Validamos que el libro exista
-    libro = buscar_libro(id_libro)
+    libro = libros.buscar(id_libro)
     if libro is None:
         return "Libro no existe"
 
@@ -65,7 +60,7 @@ def prestar_libro(id, id_libro):
 def devolver_libro(id, id_libro):
 
     # Validamos que el libro exista
-    libro = buscar_libro(id_libro)
+    libro = libros.buscar(id_libro)
     if libro is None:
         return "Libro no existe"
 

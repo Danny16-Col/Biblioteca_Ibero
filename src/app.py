@@ -57,11 +57,11 @@ while True:
         lista = listar_libros_controller()
 
         if lista:
-            print("\nID   | TITULO                | AUTOR")
+            print("\nID   | TITULO                | AUTOR  | Disponible")
             print("----------------------------------------")
 
             for libro in lista:
-                print(f"{libro.getId():<4} | {libro.getTitulo():<20} | {libro.getAutor()}")
+                print(f"{libro.getId():<4} | {libro.getTitulo():<20} | {libro.getAutor()} |        {libro.getDisponible()}")
         else:
             print("No hay libros registrados")
 

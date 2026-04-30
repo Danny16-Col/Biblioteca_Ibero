@@ -62,7 +62,7 @@ class ArbolLibros:
 
     # metodo LISTAR inorden #
 
-    # recorre el arbol en orden y devuelve los libros ordenados por ID
+    # recorre el arbol en inorden y devuelve los libros ordenados por ID
     def listar(self):
         resultado = []
         self._inorden(self.raiz, resultado)
