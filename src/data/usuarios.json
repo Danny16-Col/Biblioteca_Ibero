@@ -40,5 +40,11 @@
         "nombre": "aaaaaaa",
         "usuario": "swwwww",
         "contrase\u00f1a": "123"
+    },
+    {
+        "id": 8,
+        "nombre": "JUAN",
+        "usuario": "JUAN",
+        "contrase\u00f1a": "123"
     }
 ]

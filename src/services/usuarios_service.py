@@ -1,4 +1,5 @@
-from models.Usuario import Usuario
+from Models.Usuario import Usuario
+from Models.ArbolUsuarios import ArbolUsuarios
 import json
 import os
 
@@ -58,11 +59,15 @@ u.get_contraseña()
 def registrar_usuario(nombre, usuario, contraseña):
     usuarios = cargar_usuarios()
    
-    
-    #Aqui se verifica si ya existe
+      # Crear árbol
+    arbol = ArbolUsuarios()
+
     for u in usuarios:
-        if u.get_usuario() == usuario:
-            return False #Usuario ya existe
+      arbol.insertar(u)
+
+      # Buscar en el árbol
+    if arbol.buscar(usuario):
+     return False
         
         #Crear nuevo usuario
     nuevo= Usuario(

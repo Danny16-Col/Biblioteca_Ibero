@@ -1,4 +1,4 @@
-from models.NodoLibro import NodoLibro
+from Models.NodoLibro import NodoLibro
 
 # clase arbol binario de busqueda de libros
 class ArbolLibros:
