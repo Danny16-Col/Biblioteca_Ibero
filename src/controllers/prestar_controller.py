@@ -1,4 +1,5 @@
 from services.prestamos_service import prestar_libro
+from services.grafo_service import recomendar_libros_service
 
 
 def prestar_libro_controller():
@@ -58,7 +59,9 @@ def prestar_libro_controller():
     # PROCESO DE PRÉSTAMO
     # =======================
     resultado = prestar_libro(id, id_libro)
+    recomendaciones = recomendar_libros_service(id_libro)
 
     print("-" * 35)
     print(f"Resultado: {resultado}")
+    print(recomendaciones)
     print("=" * 35)

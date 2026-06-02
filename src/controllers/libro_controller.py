@@ -1,6 +1,4 @@
 from services.libro_service import buscar_libro, listar_libros
-from controllers.prestar_controller import prestar_libro_controller
-from controllers.devolver_controller import devolver_libro_controller
 from services.buffer_libros import registrar_libro_buffer
 
 

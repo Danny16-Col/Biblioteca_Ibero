@@ -2,6 +2,7 @@ from controllers.usuario_controller import registro
 from controllers.libro_controller import listar_libros_controller, buscar_libro_controller, registrar_libro_controller
 from controllers.prestar_controller import prestar_libro_controller
 from controllers.devolver_controller import devolver_libro_controller
+from controllers.grafo_controller import relacionar_libros_controller
 
 while True:
 
@@ -13,7 +14,8 @@ while True:
     print("4. Buscar Libro por ID") #vladimir 
     print("5. Prestar Libro")
     print("6. Devolver libro")
-    print("7. SALIR")
+    print("7. Relacioanr libro")
+    print("8. SALIR")
 
     while True: # condicional para validar la opcion del menu
         try:
@@ -119,6 +121,10 @@ while True:
         devolver_libro_controller()
 
     elif opcion == 7:
+
+        relacionar_libros_controller()
+        
+    elif opcion == 8:
 
         print("Gracias por utilizar nuestro sistema.")
         break 

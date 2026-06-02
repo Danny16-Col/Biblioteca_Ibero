@@ -24,8 +24,6 @@ def buscar_usuario(id):
 # Permite prestar un libro a un usuario
 def prestar_libro(id, id_libro):
 
-    
-
     # Validamos que el libro exista
     libro = libros.buscar(id_libro)
     if libro is None:

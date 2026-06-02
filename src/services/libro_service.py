@@ -1,5 +1,6 @@
 from Models.Libro import Libro
-from data.storage import libros
+from data.storage import libros, grafo_libros
+
 
 def registrar_libro(id_libro, titulo, autor):
     # se crea el libro
@@ -7,10 +8,13 @@ def registrar_libro(id_libro, titulo, autor):
 
     # se inserta el libro en el arbol
     insertado = libros.insertar(nuevo_libro)
+    
 
     # si ya existe ese ID, no lo deja registrar
     if not insertado:
         return "El libro ya existe..."
+    
+    grafo_libros.agregar_libro(id_libro)
 
     return "Libro registrado correctamente."
 
